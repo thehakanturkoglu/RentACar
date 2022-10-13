@@ -2,9 +2,8 @@
 
 namespace DataAccess.Abstract
 {
-    public interface IColorDal:IEntityRepository<Color>
+    public interface ISerialDal:IEntityRepository<Serial>
     {
-
+        
     }
-
 }

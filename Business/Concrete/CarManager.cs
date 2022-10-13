@@ -1,7 +1,6 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
-using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -36,7 +35,7 @@ namespace Business.Concrete
 
         public Car GetById(int carId)
         {
-            return _carDal.GetById(carId);
+            return _carDal.Get(c => c.Id == carId);
         }
 
         public bool Update(Car car)

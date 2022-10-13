@@ -10,8 +10,11 @@ namespace Entities.Concrete
     {
         public int Id { get; set; }
         public int BrandId { get; set; }
+        public int ModelId { get; set; }
+        public int SerialId { get; set; }
         public int ColorId { get; set; }
-        public string ModelYear { get; set; }
+        public short ModelYear { get; set; }
+        public int Kilometer { get; set; }
         public decimal DailyPrice { get; set; }
         public string Description { get; set; }
 

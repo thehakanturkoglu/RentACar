@@ -3,6 +3,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Concrete.InMemory
@@ -30,9 +31,19 @@ namespace DataAccess.Concrete.InMemory
 
         }
 
+        public Car Get(Expression<Func<Car, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Car> GetAll()
         {
             return _cars;
+        }
+
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
         }
 
         public Car GetById(int carId)
@@ -56,11 +67,11 @@ namespace DataAccess.Concrete.InMemory
         {
             return new List<Car>
             {
-                new Car{Id = 1, BrandId = 1, ColorId = 1, DailyPrice = 80, ModelYear = "2000", Description = "Temiz uygun fiyatlı kiralık araç."},
-                new Car{Id = 2, BrandId = 1, ColorId = 1, DailyPrice = 100, ModelYear = "2002", Description = "İki kişilik az yakıtlı kiralık araç."},
-                new Car{Id = 3, BrandId = 2, ColorId = 2, DailyPrice = 150, ModelYear = "2008", Description = "Ne yeni ne eski tam size göre kiralık araç."},
-                new Car{Id = 4, BrandId = 2, ColorId = 3, DailyPrice = 120, ModelYear = "2006", Description = "Sağlıklı ve bakımlı kiralık aile aracı."},
-                new Car{Id = 5, BrandId = 3, ColorId = 2, DailyPrice = 300, ModelYear = "2022", Description = "Yeni model konforlu sport araç."},
+                new Car{Id = 1, BrandId = 1, ColorId = 1, DailyPrice = 80, ModelYear = 2000, Description = "Temiz uygun fiyatlı kiralık araç."},
+                new Car{Id = 2, BrandId = 1, ColorId = 1, DailyPrice = 100, ModelYear = 2002, Description = "İki kişilik az yakıtlı kiralık araç."},
+                new Car{Id = 3, BrandId = 2, ColorId = 2, DailyPrice = 150, ModelYear = 2008, Description = "Ne yeni ne eski tam size göre kiralık araç."},
+                new Car{Id = 4, BrandId = 2, ColorId = 3, DailyPrice = 120, ModelYear = 2006, Description = "Sağlıklı ve bakımlı kiralık aile aracı."},
+                new Car{Id = 5, BrandId = 3, ColorId = 2, DailyPrice = 300, ModelYear = 2022, Description = "Yeni model konforlu sport araç."},
             };
         }
 
