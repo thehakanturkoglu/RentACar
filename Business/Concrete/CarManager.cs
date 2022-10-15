@@ -2,6 +2,7 @@
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -17,8 +18,13 @@ namespace Business.Concrete
 
         public bool Add(Car car)
         {
-            _carDal.Add(car);
-            return true;
+            if (CheckCarDailyPrice(car) && CheckCarDescription(car))
+            {
+                _carDal.Add(car);
+                return true;
+            }
+            return false;
+            
         }
 
         public bool Delete(Car car)
@@ -38,10 +44,37 @@ namespace Business.Concrete
             return _carDal.Get(c => c.Id == carId);
         }
 
+        public List<Car> GetCarsByBrandId(int brandId)
+        {
+            return _carDal.GetAll(c => c.BrandId == brandId);
+        }
+
+        public List<Car> GetCarsByColorId(int colorId)
+        {
+            return _carDal.GetAll(c => c.ColorId == colorId);
+        }
+
         public bool Update(Car car)
         {
             _carDal.Update(car);
             return true;
         }
+
+        private bool CheckCarDescription(Car car)
+        {
+            if (car.Description.Count() >= 2)
+                return true;
+            else
+                return false;
+        }
+
+        private bool CheckCarDailyPrice(Car car)
+        {
+            if (car.DailyPrice > 0)
+                return true;
+            else
+                return false;
+        }
+
     }
 }

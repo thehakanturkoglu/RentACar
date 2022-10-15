@@ -1,17 +1,19 @@
 ﻿using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework.Context;
+using Entities.Abstract;
 using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfSerialDal : ISerialDal
+    public class EfModelDal : IModelDal
     {
-        public void Add(Serial entity)
+        public void Add(Model entity)
         {
             using (var context = new RentACarContext())
             {
@@ -21,7 +23,7 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
 
-        public void Delete(Serial entity)
+        public void Delete(Model entity)
         {
             using (var context = new RentACarContext())
             {
@@ -31,26 +33,23 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
 
-        public Serial Get(Expression<Func<Serial, bool>> filter)
+        public Model Get(Expression<Func<Model, bool>> filter)
         {
             using (var context = new RentACarContext())
             {
-                var result = context.Set<Serial>().SingleOrDefault(filter);
-                return result;
+                return context.Set<Model>().SingleOrDefault(filter);
             }
         }
 
-        public List<Serial> GetAll(Expression<Func<Serial, bool>> filter = null)
+        public List<Model> GetAll(Expression<Func<Model, bool>> filter = null)
         {
             using (var context = new RentACarContext())
             {
-                return filter == null
-                    ? context.Set<Serial>().ToList()
-                    : context.Set<Serial>().Where(filter).ToList();
+                return filter == null ? context.Set<Model>().ToList():context.Set<Model>().Where(filter).ToList();
             }
         }
 
-        public void Update(Serial entity)
+        public void Update(Model entity)
         {
             using (var context = new RentACarContext())
             {
@@ -60,5 +59,4 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
     }
-
 }
