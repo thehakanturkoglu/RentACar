@@ -1,7 +1,5 @@
-﻿using Entities.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Core.Entities;
+
 
 namespace Entities.Concrete
 {
@@ -14,7 +12,7 @@ namespace Entities.Concrete
         public int SerialId { get; set; }
         public int ColorId { get; set; }
         public short ModelYear { get; set; }
-        public int Kilometer { get; set; }
+        public decimal Kilometer { get; set; }
         public decimal DailyPrice { get; set; }
         public string Description { get; set; }
 
