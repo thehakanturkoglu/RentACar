@@ -14,7 +14,7 @@ namespace Entities.DTOs
         public string ColorName { get; set; }
         public string Description { get; set; }
         public short ModelYear { get; set; }
-        public decimal Kilometer { get; set; }
+        public int Kilometer { get; set; }
         public decimal DailyPrice { get; set; }
 
     }
