@@ -14,7 +14,7 @@ namespace ConsoleUI
 
             var carDetails = carService.GetCarDetails();
 
-            foreach (var carDetail in carDetails)
+            foreach (var carDetail in carDetails.Data)
             {
                 Console.WriteLine($"{carDetail.BrandName} {carDetail.ModelName} {carDetail.Description} {carDetail.DailyPrice}");
             }
@@ -39,7 +39,7 @@ namespace ConsoleUI
             CarManager carManager = new CarManager(new EfCarDal());
             var cars = carManager.GetAll();
 
-            foreach (var car in cars)
+            foreach (var car in cars.Data)
             {
                 Console.WriteLine("{0} {1}", car.Description, car.DailyPrice);
             }
