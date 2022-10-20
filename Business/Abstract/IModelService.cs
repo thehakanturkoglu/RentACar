@@ -1,15 +1,16 @@
-﻿using Entities.Concrete;
+﻿using Core.Utilities.Results;
+using Entities.Concrete;
 using System.Collections.Generic;
 
 namespace Business.Abstract
 {
     public interface IModelService
     {
-        List<Model> GetAll();
-        Model GetById(int modelId);
-        bool Add(Model model);
-        bool Delete(Model model);
-        bool Update(Model model);
+        IDataResult<List<Model>> GetAll();
+        IDataResult<Model> GetById(int modelId);
+        IResult Add(Model model);
+        IResult Delete(Model model);
+        IResult Update(Model model);
     }
 
 }
