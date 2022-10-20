@@ -16,22 +16,16 @@ namespace ConsoleUI
 
             foreach (var carDetail in carDetails)
             {
-                Console.WriteLine($"{carDetail.BrandName} {carDetail.SerialName} {carDetail.ModelName} {carDetail.Description} {carDetail.DailyPrice}");
+                Console.WriteLine($"{carDetail.BrandName} {carDetail.ModelName} {carDetail.Description} {carDetail.DailyPrice}");
             }
 
 
         }
 
-        private static void AddSerial()
-        {
-            SerialManager serialManager = new SerialManager(new EfSerialDal());
-            serialManager.Add(new Serial { Name = "A3" });
-        }
-
         private static void AddCar()
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            carManager.Add(new Car { BrandId = 2, ColorId = 1, ModelId = 3, SerialId = 4, DailyPrice = 200, Description = "Audi A3 Kiralık", Kilometer = 211, ModelYear = 2012 });
+            carManager.Add(new Car { ColorId = 1, ModelId = 3, DailyPrice = 200, Description = "Audi A3 Kiralık", Kilometer = 211, ModelYear = 2012 });
         }
 
         private static void AddModel()
@@ -53,17 +47,6 @@ namespace ConsoleUI
         }
 
 
-        static void SerialGetAll()
-        {
-            SerialManager serialManager = new SerialManager(new EfSerialDal());
-
-            var series = serialManager.GetAll();
-
-            foreach (var serial in series)
-            {
-                Console.WriteLine(serial.Name);
-            }
-        }
 
     }
 

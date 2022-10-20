@@ -47,7 +47,7 @@ namespace Business.Concrete
 
         public List<Car> GetCarsByBrandId(int brandId)
         {
-            return _carDal.GetAll(c => c.BrandId == brandId);
+            return _carDal.GetCarsByBrandId(brandId);
         }
 
         public List<Car> GetCarsByColorId(int colorId)
@@ -80,6 +80,11 @@ namespace Business.Concrete
         public List<CarDetailsDto> GetCarDetails()
         {
             return _carDal.GetCarDetails();
+        }
+
+        public List<Car> GetCarsByModelId(int modelId)
+        {
+            return _carDal.GetAll(c => c.ModelId == modelId);
         }
     }
 }

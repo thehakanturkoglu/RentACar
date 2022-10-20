@@ -10,7 +10,6 @@ namespace Entities.DTOs
         public int CarId { get; set; }
         public string BrandName { get; set; }
         public string ModelName { get; set; }
-        public string SerialName { get; set; }
         public string ColorName { get; set; }
         public string Description { get; set; }
         public short ModelYear { get; set; }
