@@ -10,6 +10,12 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+           
+
+        }
+
+        private static void GetCarDetails()
+        {
             var carService = new CarManager(new EfCarDal());
 
             var carDetails = carService.GetCarDetails();
@@ -18,8 +24,6 @@ namespace ConsoleUI
             {
                 Console.WriteLine($"{carDetail.BrandName} {carDetail.ModelName} {carDetail.Description} {carDetail.DailyPrice}");
             }
-
-
         }
 
         private static void AddCar()
