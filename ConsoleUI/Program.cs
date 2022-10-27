@@ -10,8 +10,10 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+
            
 
+            GetCarDetails();
         }
 
         private static void GetCarDetails()
